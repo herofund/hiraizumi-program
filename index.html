@@ -66,6 +66,13 @@ th{font-weight:700;background:var(--card)}td.t,th.t{white-space:nowrap}
 details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:700;min-height:28px}details p{margin:10px 0 0}
 .team{display:flex;gap:14px;align-items:center}.team .av{flex:none;width:72px;height:72px;border-radius:50%;overflow:hidden;background:#d9cbbd}.team .av img{width:100%;height:100%;object-fit:cover}
 .steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:12px}.steps li{counter-increment:s;display:flex;gap:14px}.steps li::before{content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--red);color:var(--red);text-align:center;font-weight:700;line-height:31px}
+.form{display:grid;gap:14px;max-width:640px}.form label{display:grid;gap:6px;font-weight:700;font-size:15px}
+.form input,.form select,.form textarea{font:16px/1.4 inherit;font-family:inherit;padding:12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);min-height:46px}
+.form input:focus,.form select:focus,.form textarea:focus{outline:3px solid var(--gold);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips label{display:flex;align-items:center;gap:8px;font-weight:500;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.chips input{min-height:auto;width:18px;height:18px;accent-color:var(--red)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:600px){.two{grid-template-columns:minmax(0,1fr)}}
+.msg{padding:14px;border-radius:10px;background:var(--card);border:1px solid var(--line)}
 footer{padding:40px max(5vw,18px);font-size:14px}
 @media(max-width:900px){.hero,.g2,.tour{grid-template-columns:minmax(0,1fr)}.g3,.g4,.stats{grid-template-columns:repeat(2,minmax(0,1fr))}nav .links{display:none}}
 @media(max-width:600px){.g3,.g4{grid-template-columns:minmax(0,1fr)}table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;font-weight:700}.stack td:empty{display:none}}
@@ -74,7 +81,7 @@ footer{padding:40px max(5vw,18px);font-size:14px}
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
 <body>
-<nav><div class="wrap"><b>Hiraizumi Learning Program</b><span class="links" style="display:contents"><a href="#learn">What you learn</a><a href="#programs">Programs</a><a href="#day">A day</a><a href="#fees">Fees</a><a href="#faculty">For universities</a><a href="#faq">FAQ</a></span><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Apply</a></div></nav>
+<nav><div class="wrap"><b>Hiraizumi Learning Program</b><span class="links" style="display:contents"><a href="#learn">What you learn</a><a href="#programs">Programs</a><a href="#day">A day</a><a href="#fees">Fees</a><a href="#faculty">For universities</a><a href="#faq">FAQ</a></span><a class="btn" href="#contact">Contact</a></div></nav>
 
 <header class="band"><div class="wrap hero">
 <div>
@@ -123,10 +130,10 @@ footer{padding:40px max(5vw,18px);font-size:14px}
 <div class="grid g2" style="margin-top:20px">
 <article class="card course"><span class="soft">2 weeks &middot; 13 nights</span><h3 style="font-size:26px;margin-top:6px">Japanese &amp; Life in Hiraizumi</h3><p class="soft">A 2-week study program combining Japanese classes, daily life in a Japanese town, and hands-on cultural experiences.</p><div class="price">USD 1,500</div>
 <ul><li>Japanese classes every weekday (about 10)</li><li>Sharehouse life: morning cleaning, garbage sorting, house rules</li><li>Chuson-ji temple tour with local guides</li><li>Elementary school volunteering, twice a week</li><li>2-day Iwate study tour</li><li>Seasonal events: mochi pounding, candle making, town festivals</li><li>Final speech in Japanese and certificate</li></ul>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Apply for 2 weeks</a></article>
+<a class="btn" href="#contact">Apply for 2 weeks</a></article>
 <article class="card course"><span class="soft">1 month &middot; 29 nights &nbsp;<span class="badge">Most complete</span></span><h3 style="font-size:26px;margin-top:6px">Japanese &amp; Community Project in Hiraizumi</h3><p class="soft">A 1-month study program combining Japanese classes, a real project with local businesses, and career learning.</p><div class="price">USD 2,500</div>
 <ul><li>Everything in the 2-week program</li><li>Team project on real issues of local companies: clarifying customer needs, organizing documents, analyzing data (no coding required)</li><li>Mid-term and final presentations to the town, DMO and companies</li><li>Career sessions: goals, Japanese job postings, reflection</li><li>Exchange with Japanese high school and university students</li><li>Certificate and grade report</li></ul>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Apply for 1 month</a></article>
+<a class="btn" href="#contact">Apply for 1 month</a></article>
 </div>
 <p class="soft" style="margin-top:18px">The project is an unpaid training activity. A 2-month option is available on request.</p>
 <h3 style="margin-top:36px">Dates 2027</h3>
@@ -188,10 +195,27 @@ footer{padding:40px max(5vw,18px);font-size:14px}
 
 <section class="band" id="faq" style="background:var(--card)"><div class="wrap grid g2">
 <div><h2>How to apply</h2><div class="gold"></div>
-<ol class="steps"><li>Send the inquiry form or email info@herofund.app.</li><li>Online interview (30 minutes).</li><li>Submit the application form.</li><li>We send you the payment details and schedule.</li><li>Receive your pre-departure guide.</li></ol>
+<ol class="steps"><li>Send the contact form below or email info@herofund.app.</li><li>Online interview (30 minutes).</li><li>Submit the application form.</li><li>We send you the payment details and schedule.</li><li>Receive your pre-departure guide.</li></ol>
 <p class="soft">Payment and cancellation terms are explained in the online interview.</p>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Send an inquiry</a></div>
+<a class="btn" href="#contact">Contact us</a></div>
 <div><h2>FAQ</h2><div class="gold"></div><div id="faqs"></div></div>
+</div></section>
+
+<section class="band" id="contact"><div class="wrap">
+<h2>Contact us</h2><div class="gold"></div>
+<p class="lead soft">Request the program guide, join an online info session, or ask us anything. We reply within 2 business days.</p>
+<form class="form" id="cf" novalidate>
+<fieldset style="border:0;padding:0;margin:0"><legend style="font-weight:700;font-size:15px;margin-bottom:8px">I would like to</legend>
+<div class="chips"><label><input type="radio" name="request" value="Program guide" checked> Get the program guide</label><label><input type="radio" name="request" value="Online info session"> Join an online info session</label><label><input type="radio" name="request" value="Question"> Ask a question</label></div></fieldset>
+<div class="two"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div>
+<div class="two"><label>I am a<select name="role"><option>Student</option><option>Faculty or university staff</option><option>Young professional</option><option>Other</option></select></label><label>Country<input name="country" autocomplete="country-name"></label></div>
+<label>Program of interest<select name="program"><option>Not sure yet</option><option>2-week program</option><option>1-month program</option><option>University group</option></select></label>
+<label>Message (optional)<textarea name="message" rows="4"></textarea></label>
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+<div><button class="btn" type="submit" style="border:0;cursor:pointer;font:inherit;font-weight:700">Send</button></div>
+<p class="msg" id="cfmsg" role="status" hidden></p>
+<p class="soft" style="font-size:14px">You can also email us at info@herofund.app.</p>
+</form>
 </div></section>
 
 <footer class="ink"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between"><span>HeroFund Inc. &middot; Hiraizumi, Iwate, Japan</span><span>info@herofund.app</span><span>&copy; 2026 HeroFund Inc.</span></div></footer>
@@ -211,6 +235,17 @@ const team=[["profiles/chihiro-kurose.jpg","Chihiro Kurose","Program Director. C
 document.getElementById('team').innerHTML=team.map(([s,n,r])=>`<div class="team"><div class="av"><img src="${esc(s)}" alt="${esc(n)}" onerror="this.remove()"></div><div><b>${esc(n)}</b><br><span class="soft">${esc(r)}</span></div></div>`).join('');
 const faqs=[["Do I need to speak Japanese?","No. Beginners are welcome. Classes are by level and staff support you in English."],["What visa do I need?","It depends on your nationality. Some nationalities need a short-term visa, so please check early. We provide documents for your application on request."],["Can I get academic credit?","We provide a syllabus and a grade report for the 1-month program. Please check credit transfer with your university."],["Is the project paid work?","No. It is an unpaid training activity. Participants do not receive any payment."],["How do I get to Hiraizumi?","Take the Tohoku Shinkansen from Tokyo to Ichinoseki Station. We pick you up there."],["What should I bring?","Passport, visa if required, Visit Japan Web QR code, cash and a Visa or Mastercard, SIM card, laptop, indoor shoes, medicine, warm clothes (Feb to Apr), towels and a toothbrush."],["Can graduate students or young professionals join?","Yes. Participants must be 18 or older."]];
 document.getElementById('faqs').innerHTML=faqs.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+
+const cf=document.getElementById('cf'),cm=document.getElementById('cfmsg');
+cf.addEventListener('submit',async e=>{e.preventDefault();
+ const d=Object.fromEntries(new FormData(cf));
+ if(!d.name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){cm.hidden=false;cm.textContent='Please enter your name and a valid email address.';return}
+ if(d.botcheck)return;
+ const btn=cf.querySelector('button');btn.disabled=true;btn.textContent='Sending...';
+ try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:'WEB3FORMS_ACCESS_KEY',subject:'Hiraizumi Program inquiry: '+d.request,from_name:'Hiraizumi Learning Program website',...d})});
+  const j=await r.json();if(!j.success)throw 0;cf.reset();cm.hidden=false;cm.textContent='Thank you. We received your message and will reply within 2 business days.'}
+ catch(_){cm.hidden=false;cm.textContent='Sorry, the message could not be sent. Please email us at info@herofund.app.'}
+ btn.disabled=false;btn.textContent='Send'});
 }</script>
 </body>
 </html>
