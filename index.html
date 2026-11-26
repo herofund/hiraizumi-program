@@ -1,605 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A selective 1-month learning-based stay program in Hiraizumi, Japan. Learn through real DX projects while living in a UNESCO World Heritage town.">
-    <title>Hiraizumi Learning Program | HeroFund Inc.</title>
-    <link rel="icon" type="image/png" href="icon-32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        nav {
-            background: #fff;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav a {
-            margin-right: 2rem;
-            text-decoration: none;
-            color: #1B3A6E;
-            font-weight: 500;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin: 2rem 0 1rem;
-        }
-        h2 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
-            border-bottom: 2px solid #1B3A6E;
-            padding-bottom: 0.5rem;
-        }
-        h3 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.5rem;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-        }
-        
-        /* 新しいバナースタイル */
-        .hero-banner {
-            background: linear-gradient(135deg, #1B3A6E 0%, #2E5090 50%, #4A90E2 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: -2rem -2rem 3rem -2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-        }
-        
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 Q100,10 200,30 T400,30 T600,30 T800,30 T1000,30 T1200,30 L1200,60 L0,60 Z' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E") repeat-x;
-            background-size: 200px 40px;
-        }
-        
-        .hero-banner-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-banner h1 {
-            color: white;
-            margin: 0 0 0.5rem 0;
-            font-size: 2.8rem;
-            letter-spacing: 0.5px;
-            font-weight: 700;
-        }
-        
-        .hero-banner .subtitle {
-            font-size: 1.3rem;
-            color: #FFD700;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-top: 1rem;
-        }
-        
-        .hero-banner .accent {
-            font-size: 1rem;
-            color: #ffffff;
-            margin-top: 1.5rem;
-            opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: 1.5px;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        .info-grid div {
-            padding: 1rem;
-            background: #f5f5f5;
-            border-radius: 8px;
-        }
-        .info-grid strong {
-            display: block;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        .info-grid span {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1B3A6E;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #1B3A6E;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 1rem 0;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            background: #4A90E2;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(26, 58, 110, 0.3);
-        }
-        .phase {
-            background: #f9f9f9;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid #4A90E2;
-            border-radius: 4px;
-        }
-        .phase h3 {
-            margin-top: 0;
-        }
-        .team-member-card {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: #f5f5f5;
-            border-radius: 8px;
-            align-items: flex-start;
-        }
-        .team-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 8px;
-            object-fit: cover;
-            flex-shrink: 0;
-            margin: 0;
-        }
-        .team-content {
-            flex: 1;
-        }
-        .team-content strong {
-            display: block;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #1B3A6E;
-        }
-        .team-content .title {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        .team-content p {
-            margin: 0;
-        }
-        
-        .team-member {
-
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: #f5f5f5;
-            border-radius: 8px;
-        }
-        .team-member strong {
-            display: block;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #1B3A6E;
-        }
-        .team-member .title {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        .faq-item {
-            margin: 1.5rem 0;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        .faq-item strong {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #1B3A6E;
-        }
-        footer {
-            background: #1B3A6E;
-            color: white;
-            padding: 2rem;
-            margin-top: 3rem;
-            text-align: center;
-        }
-        footer a {
-            color: #FFD700;
-        }
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            h2 {
-                font-size: 1.3rem;
-            }
-            .hero-banner h1 {
-                font-size: 1.8rem;
-            }
-            .hero-banner .subtitle {
-                font-size: 1rem;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hiraizumi Learning Program</title>
+<meta name="description" content="Live, learn and create for 2 weeks or 1 month in Hiraizumi, a UNESCO World Heritage town in Iwate, Japan. Japanese classes, local projects, crafts and community life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* VOICE: warm, concrete, welcoming; a town inviting a guest, not an ad.
+   IDEA: a Hidehira-nuri lacquer tray: black and vermilion fields with a thin gold line.
+   PICTURE: a layered scene of Konjikido's roof, cedar hills and morning sun; real photos below.
+   COLOUR and TYPE: white ground, lacquer vermilion fields, sumi ink, one gold hairline; Shippori Mincho titles, Zen Kaku Gothic body.
+   LAYOUT: full-width bands alternating white and lacquer; content to 1180px; cards end together. */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#141210);--ink:light-dark(#1d1a17,#f1ece6);--soft:light-dark(#5d5650,#b9b0a6);--red:#a8231c;--red2:light-dark(#8a1a14,#7a1712);--gold:#c49a2c;--line:light-dark(#e6e0d9,#2e2a26);--card:light-dark(#faf8f5,#1d1a17)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 "Zen Kaku Gothic New",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Shippori Mincho B1",Georgia,serif;line-height:1.1;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(36px,5.2vw,58px)}h2{font-size:clamp(30px,3.6vw,44px)}h3{font-size:21px;line-height:1.3}
+p{margin:0 0 1em;max-width:68ch}a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(48px,7vw,96px) max(5vw,18px)}
+.lacquer{background:var(--red2);color:#fbf3ec}.lacquer .soft{color:#f0d6cc}
+.ink{background:#1d1a17;color:#f1ece6}
+.soft{color:var(--soft)}.lead{font-size:19px;max-width:60ch}
+.gold{border-top:1px solid var(--gold);width:64px;margin:0 0 20px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px max(5vw,18px)}
+nav b{font-family:"Shippori Mincho B1",serif;font-size:18px;margin-right:auto}
+nav a{text-decoration:none;font-size:15px;color:var(--soft)}nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:var(--red);color:#fff!important;text-decoration:none;font-weight:700}
+.btn.ghost{background:transparent;border:1.5px solid currentColor;color:inherit!important}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,56px);align-items:center}
+.hero .tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px}
+.tag{font-size:14px;padding:5px 12px;border:1px solid var(--line);border-radius:999px}
+.scene{width:100%;aspect-ratio:5/4;border-radius:18px;overflow:hidden;display:block}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:8px}
+.stats div{border-top:1px solid var(--gold);padding-top:12px}.stats strong{display:block;font:800 clamp(28px,3vw,38px)/1.1 "Shippori Mincho B1",serif}
+.grid{display:grid;gap:20px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.lacquer .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)}
+.photo{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#efe6dc,#d9cbbd);aspect-ratio:4/3}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo span{position:absolute;inset:auto 12px 12px;font-size:13px;color:#5d5650}
+.photo img+span{display:none}.heroimg{border-radius:18px}
+.quotes{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.quote{flex:0 0 min(340px,82vw);scroll-snap-align:start}
+.quote p{font-family:"Shippori Mincho B1",serif;font-size:20px;line-height:1.45;margin-bottom:14px}
+.qnav{display:flex;gap:10px;margin-top:14px}.qnav button{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;background:none;color:inherit;font-size:20px;cursor:pointer}
+.value{display:flex;gap:14px}.value i{flex:none;width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;font:700 15px/40px "Shippori Mincho B1",serif;text-align:center;font-style:normal}
+.course{display:flex;flex-direction:column}.course .price{font:800 34px/1 "Shippori Mincho B1",serif;margin:14px 0 4px}
+.course ul{padding-left:20px;margin:14px 0 20px}.course li{margin:4px 0}.course .btn{margin-top:auto;align-self:flex-start}
+.badge{display:inline-block;font-size:13px;padding:3px 10px;border-radius:999px;background:var(--gold);color:#1d1a17;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;background:var(--card)}td.t,th.t{white-space:nowrap}
+.lacquer th{background:rgba(255,255,255,.08)}.lacquer td,.lacquer th{border-color:rgba(255,255,255,.18)}
+.scroll{overflow-x:auto}
+.tour{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.tour ol{list-style:none;padding:0;margin:0}.tour li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.tour li b{white-space:nowrap}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:700;min-height:28px}details p{margin:10px 0 0}
+.team{display:flex;gap:14px;align-items:center}.team .av{flex:none;width:72px;height:72px;border-radius:50%;overflow:hidden;background:#d9cbbd}.team .av img{width:100%;height:100%;object-fit:cover}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:12px}.steps li{counter-increment:s;display:flex;gap:14px}.steps li::before{content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--red);color:var(--red);text-align:center;font-weight:700;line-height:31px}
+footer{padding:40px max(5vw,18px);font-size:14px}
+@media(max-width:900px){.hero,.g2,.tour{grid-template-columns:minmax(0,1fr)}.g3,.g4,.stats{grid-template-columns:repeat(2,minmax(0,1fr))}nav .links{display:none}}
+@media(max-width:600px){.g3,.g4{grid-template-columns:minmax(0,1fr)}table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;font-weight:700}.stack td:empty{display:none}}
+@media(prefers-reduced-motion:no-preference){.sun{animation:rise 2.4s ease-out both}@keyframes rise{from{transform:translateY(40px);opacity:.3}}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
 <body>
-    <nav>
-        <a href="#overview">Overview</a>
-        <a href="#structure">Structure</a>
-        <a href="#location">Location</a>
-        <a href="#fee">Fee</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<nav><div class="wrap"><b>Hiraizumi Learning Program</b><span class="links" style="display:contents"><a href="#learn">What you learn</a><a href="#programs">Programs</a><a href="#day">A day</a><a href="#fees">Fees</a><a href="#faculty">For universities</a><a href="#faq">FAQ</a></span><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Apply</a></div></nav>
 
-    <div class="hero-banner">
-        <div class="hero-banner-content">
-            <h1>Japan Exchange & DX Learning Program</h1>
-            <div class="subtitle">Now Accepting Applications</div>
-        </div>
-    </div>
+<header class="band"><div class="wrap hero">
+<div>
+<h1>Live, learn and create in a World Heritage town in Japan</h1>
+<p class="lead soft">Spend 2 weeks or 1 month in Hiraizumi, Iwate. Study Japanese every day, live in a sharehouse, make things with local craftsmen, and become part of a small Japanese community.</p>
+<div class="tags"><span class="tag">2 weeks or 1 month</span><span class="tag">Feb&ndash;Apr and summer 2027</span><span class="tag">6&ndash;12 participants</span><span class="tag">No Japanese required</span></div>
+<div class="cta"><a class="btn" href="#programs">See the programs</a><a class="btn ghost" href="program-guide.pdf">Program guide (PDF)</a></div>
+</div>
+<figure class="photo heroimg" style="margin:0;aspect-ratio:5/4"><img src="images/web/week1-community.jpg" alt="Participants from Cambodia with local residents of Hiraizumi at a culture exchange event" onerror="this.remove()"><span>Participants with local residents</span></figure>
+</div>
+<div class="wrap stats" style="margin-top:40px">
+<div><strong>2025</strong><span class="soft">first cohort hosted</span></div>
+<div><strong>About 20</strong><span class="soft">students have stayed in Hiraizumi</span></div>
+<div><strong>All</strong><span class="soft">participants completed the program</span></div>
+<div><strong>UNESCO</strong><span class="soft">World Heritage town as your neighborhood</span></div>
+</div></header>
 
-    <div class="container">
-        <h1>1-Month Learning-Based Stay Program in Japan</h1>
-        <p>A selective, small-scale immersive program in Hiraizumi — a UNESCO World Heritage town in northern Japan. Learn through real DX projects that solve challenges faced by local businesses and government, while living in a community that few international students ever experience.</p>
+<section class="band lacquer" aria-labelledby="voices"><div class="wrap">
+<h2 id="voices">From our past participants</h2><div class="gold"></div>
+<div class="quotes" id="q"></div>
+<div class="qnav"><button aria-label="Previous" data-d="-1">&larr;</button><button aria-label="Next" data-d="1">&rarr;</button></div>
+</div></section>
 
-        <img src="images/hero-hiraizumi.jpg" alt="Sunset over Hiraizumi Muryokoin with calm fields and traditional homes">
+<section class="band" id="learn"><div class="wrap">
+<h2>What you will learn</h2><div class="gold"></div>
+<p class="lead soft">You learn the values at the heart of Japanese life by practicing them every day, not by reading about them.</p>
+<div class="grid g2" style="margin-top:28px" id="values"></div>
+<div class="grid g3" style="margin-top:36px">
+<div class="card"><h3>Discover</h3><p>See, try and make what does not exist in your home country, with your own hands.</p></div>
+<div class="card"><h3>Connect</h3><p>Children at elementary schools, craftsmen, families and the town office become your neighbors.</p></div>
+<div class="card"><h3>Grow</h3><p>Each day ends with a 5-minute reflection: what you did, what was hard, what you will do tomorrow.</p></div>
+</div>
+</div></section>
 
-        <div class="info-grid">
-            <div>
-                <strong>Duration</strong>
-                <span>1 Month</span>
-            </div>
-            <div>
-                <strong>Location</strong>
-                <span>Hiraizumi, Iwate</span>
-            </div>
-            <div>
-                <strong>Format</strong>
-                <span>In-Person</span>
-            </div>
-            <div>
-                <strong>Group Size</strong>
-                <span>Small Cohort</span>
-            </div>
-        </div>
+<section class="band" id="programs" style="background:var(--card)"><div class="wrap">
+<h2>Choose your program</h2><div class="gold"></div>
+<div class="grid g2" style="margin-top:20px">
+<article class="card course"><span class="soft">2 weeks &middot; 13 nights</span><h3 style="font-size:26px;margin-top:6px">Japanese &amp; Life in Hiraizumi</h3><p class="soft">A 2-week study program combining Japanese classes, daily life in a Japanese town, and hands-on cultural experiences.</p><div class="price">USD 1,100</div>
+<ul><li>Japanese classes every weekday (about 10)</li><li>Sharehouse life: morning cleaning, garbage sorting, house rules</li><li>Chuson-ji temple tour with local guides</li><li>Elementary school volunteering, twice a week</li><li>2-day Iwate study tour</li><li>Seasonal events: mochi pounding, candle making, town festivals</li><li>Final speech in Japanese and certificate</li></ul>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Apply for 2 weeks</a></article>
+<article class="card course"><span class="soft">1 month &middot; 29 nights &nbsp;<span class="badge">Most complete</span></span><h3 style="font-size:26px;margin-top:6px">Japanese &amp; Community Project in Hiraizumi</h3><p class="soft">A 1-month study program combining Japanese classes, a real project with local businesses, and career learning.</p><div class="price">USD 2,500</div>
+<ul><li>Everything in the 2-week program</li><li>Team project on real issues of local companies: clarifying customer needs, organizing documents, analyzing data (no coding required)</li><li>Mid-term and final presentations to the town, DMO and companies</li><li>Career sessions: goals, Japanese job postings, reflection</li><li>Exchange with Japanese high school and university students</li><li>Certificate and grade report</li></ul>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Apply for 1 month</a></article>
+</div>
+<p class="soft" style="margin-top:18px">The project is an unpaid training activity. A 2-month option is available on request.</p>
+<h3 style="margin-top:36px">Dates 2027</h3>
+<div class="scroll"><table class="stack"><thead><tr><th>Period</th><th>2-week program</th><th>1-month program</th></tr></thead><tbody>
+<tr><td>Feb&ndash;Apr 2027</td><td>Feb 15&ndash;28 &middot; Mar 15&ndash;28</td><td>Mar 1&ndash;30 &middot; Apr 1&ndash;30</td></tr>
+<tr><td>Summer 2027</td><td>Jun 14&ndash;27 &middot; Jul 12&ndash;25 &middot; Aug 9&ndash;22</td><td>Jun 1&ndash;30 &middot; Jul 1&ndash;30 &middot; Aug 1&ndash;30</td></tr></tbody></table></div>
+<p class="soft" style="margin-top:10px">Dates are tentative. Other dates are possible for university groups.</p>
+</div></section>
 
-        <section id="overview">
-            <h2>Program Overview</h2>
-            <h3>Learn Through Real DX Projects in Rural Japan</h3>
-            <p>This is a 1-month learning-based stay program designed for international participants who want to gain real experience in Japan. The core of the program is project-based learning: you will work on DX (Digital Transformation) projects that address real challenges faced by local businesses and municipal government in Hiraizumi.</p>
-            <p>Rather than studying in a major city like Tokyo, participants live and learn in Hiraizumi — a quiet, historic town in northern Japan. This condensed format offers intensive learning, sustained focus, and genuine cultural immersion in a short timeframe. The program is selective and small-scale, prioritizing learning quality and personal support.</p>
+<section class="band" id="day"><div class="wrap">
+<h2>A typical weekday</h2><div class="gold"></div>
+<div class="grid g2" style="align-items:start">
+<div class="scroll"><table><tbody id="days"></tbody></table></div>
+<div class="grid g2"><div class="photo"><img src="images/web/activity-1.jpg" alt="Team project work" loading="lazy" onerror="this.remove()"><span>Team project work</span></div><div class="photo"><img src="images/web/week4-meeting.jpg" alt="Meeting local government and business partners" loading="lazy" onerror="this.remove()"><span>Meeting local government and business partners</span></div><div class="photo"><img src="images/web/hiraizumi-1.jpg" alt="Chuson-ji temple" loading="lazy" onerror="this.remove()"><span>Chuson-ji temple</span></div><div class="photo"><img src="images/web/participant-meals.jpg" alt="Dinner together" loading="lazy" onerror="this.remove()"><span>Dinner together</span></div></div>
+</div>
+<p class="soft" style="margin-top:18px">Weekends: Chuson-ji tour, mochi pounding with local families, Hiraizumi run and walk, town festivals, and free time.</p>
+</div></section>
 
-            <h3>This Program Is For</h3>
-            <ul style="margin-left: 2rem; margin-top: 1rem;">
-                <li>Students studying IT, computer science, or software engineering</li>
-                <li>Students studying tourism management or hospitality</li>
-                <li>Those who want to learn AI and apply it to real-world problems</li>
-                <li>Those interested in working in Japan in the future</li>
-                <li>Those who want to study Japanese through daily life, not only textbooks</li>
-                <li>Those comfortable living in a local Japanese community</li>
-            </ul>
+<section class="band ink"><div class="wrap">
+<h2>2-day Iwate study tour</h2><div class="gold"></div>
+<p class="lead" style="color:#cfc6bc">Both programs include a bus tour to meet craftsmen and companies across Iwate and Miyagi.</p>
+<div class="tour" style="margin-top:20px"><div><h3>Day 1</h3><ol id="t1"></ol></div><div><h3>Day 2</h3><ol id="t2"></ol></div></div>
+</div></section>
 
-            <h3>What You Will Gain</h3>
-            <ul style="margin-left: 2rem; margin-top: 1rem;">
-                <li>Hands-on experience solving real business and government challenges with technology</li>
-                <li>Practical skills in DX, AI tools, and digital problem-solving</li>
-                <li>Practical Japanese communication skills</li>
-                <li>Understanding of how local industries and tourism operate in Japan</li>
-                <li>Collaborative experience in an international project team</li>
-                <li>A portfolio of real project work for job interviews and applications</li>
-            </ul>
-        </section>
+<section class="band"><div class="wrap grid g2" style="align-items:center">
+<div><h2>Where you stay</h2><div class="gold"></div>
+<p>You live in the Hiraizumi International Sharehouse with other participants: furnished rooms with futons, a shared kitchen and a co-working space. Wi-Fi and utilities are included.</p>
+<p>Staff live nearby and can be reached 24 hours in an emergency. We pick you up at Ichinoseki Station when you arrive.</p></div>
+<div class="photo"><img src="images/sharehouse.jpg" alt="Hiraizumi International Sharehouse" onerror="this.remove()"><span>Photo: sharehouse rooms and co-working space</span></div>
+</div></section>
 
-        <section id="structure">
-            <h2>Program Structure</h2>
-            <p>The program is structured in four weeks, each building on the last. The exact content is adapted based on each participant's background, interests, and goals.</p>
+<section class="band" id="fees" style="background:var(--card)"><div class="wrap">
+<h2>Fees</h2><div class="gold"></div>
+<div class="scroll"><table class="stack"><thead><tr><th></th><th>2-week program</th><th>1-month program</th></tr></thead><tbody>
+<tr><td>Standard fee</td><td class="t">USD 1,100</td><td class="t">USD 2,500</td></tr>
+<tr><td>Group of 3 or more</td><td>&ndash;</td><td class="t">USD 2,300 per person</td></tr>
+<tr><td>Application through a university</td><td>&ndash;</td><td class="t">USD 2,200 per person</td></tr></tbody></table></div>
+<p class="soft" style="margin-top:12px">Discounts cannot be combined. Special rates are available for partner universities.</p>
+<div class="grid g2" style="margin-top:20px"><div class="card"><h3>Included</h3><p>Japanese classes, activities and workshops, the 2-day study tour, the community project and career sessions (1 month), sharehouse accommodation with Wi-Fi and utilities, pick-up at Ichinoseki Station, support during your stay, certificate.</p></div>
+<div class="card"><h3>Not included</h3><p>Meals, international flights, travel between Tokyo and Ichinoseki, travel insurance (required), visa fees, personal expenses.</p></div></div>
+</div></section>
 
-            <div class="phase">
-                <h3>Week 1 — Orientation & Foundation</h3>
-                <p><strong>Settle In, Learn Local Context</strong></p>
-                <p>Arrive in Hiraizumi and begin settling into daily life. Start practical Japanese language study, learn local customs, and build relationships with community members. Get introduced to the local businesses and government organizations you will work with during your stay.</p>
-                <img src="images/week1-community.jpg" alt="International students and local residents at a community culture exchange event">
-            </div>
+<section class="band lacquer" id="faculty"><div class="wrap">
+<h2>For universities and faculty</h2><div class="gold"></div>
+<p class="lead soft">We host groups of 6&ndash;12 students sent by universities, with or without a faculty member. Dates and content can follow your academic calendar.</p>
+<div class="grid g4" style="margin-top:24px">
+<div class="card"><h3>Academic credit</h3><p>Syllabus with class hours, assessment methods and a grade report for the 1-month program.</p></div>
+<div class="card"><h3>University rate</h3><p>USD 2,200 per person for the 1-month program. Partner universities: please ask.</p></div>
+<div class="card"><h3>Safety</h3><p>Travel insurance required. Emergency procedures and a 24-hour contact shared before arrival.</p></div>
+<div class="card"><h3>Online briefing</h3><p>A 30-minute online session for your students or staff, on request.</p></div>
+</div>
+<div class="cta" style="margin-top:28px"><a class="btn ghost" href="program-guide.pdf">Download the program guide</a><a class="btn ghost" href="mailto:info@herofund.app">info@herofund.app</a></div>
+</div></section>
 
-            <div class="phase">
-                <h3>Week 2 — Project Immersion</h3>
-                <p><strong>Begin Real DX Project</strong></p>
-                <p>Start working on DX projects addressing real challenges of local businesses and municipal government. Apply technology — including AI tools — to practical problems. Collaborate with team members and local stakeholders on the ground.</p>
-                <img src="images/week2-discussion.jpg" alt="Group discussion and project planning session with participants">
-            </div>
+<section class="band"><div class="wrap">
+<h2>Our team</h2><div class="gold"></div>
+<div class="grid g3" id="team"></div>
+</div></section>
 
-            <div class="phase">
-                <h3>Week 3 — Active Development</h3>
-                <p><strong>Build & Refine Solutions</strong></p>
-                <p>Continue developing your DX project with guidance from mentors. Apply what you are learning through hands-on work. Deepen your Japanese through daily project collaboration and community interaction. Test and refine your solutions based on feedback.</p>
-                <img src="images/week3-presentation.jpg" alt="Project presentation and team discussion during DX workshop">
-            </div>
+<section class="band" id="faq" style="background:var(--card)"><div class="wrap grid g2">
+<div><h2>How to apply</h2><div class="gold"></div>
+<ol class="steps"><li>Send the inquiry form or email info@herofund.app.</li><li>Online interview (30 minutes).</li><li>Submit the application and pay a 30% deposit.</li><li>Pay the balance 30 days before the start.</li><li>Receive your pre-departure guide.</li></ol>
+<p class="soft">Cancellation: up to 60 days before the start, full refund except the deposit. 59&ndash;30 days before, 50% of the fee. From 29 days before, no refund.</p>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform">Send an inquiry</a></div>
+<div><h2>FAQ</h2><div class="gold"></div><div id="faqs"></div></div>
+</div></section>
 
-            <div class="phase">
-                <h3>Week 4 — Presentation & Reflection</h3>
-                <p><strong>Present & Plan Next Steps</strong></p>
-                <p>Finalize your DX project and present your outcomes to local stakeholders. Reflect on your learning and growth. Build a portfolio of real project work. Prepare for your next steps — whether that is further study, work in Japan, or returning home with new skills and perspective.</p>
-                <img src="images/week4-meeting.jpg" alt="Participants in formal meeting with local government and business partners">
-            </div>
-        </section>
+<footer class="ink"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between"><span>HeroFund Inc. &middot; Hiraizumi, Iwate, Japan</span><span>info@herofund.app</span><span>&copy; 2026 HeroFund Inc.</span></div></footer>
 
-        <section id="location">
-            <h2>Location</h2>
-            <h3>Why Hiraizumi</h3>
-            <p>Hiraizumi is a UNESCO World Heritage town with a rich cultural history stretching back nearly a thousand years. Located in Iwate Prefecture in northern Japan, it offers an environment that is rare for international programs — one where learning happens naturally through daily life.</p>
-
-            <img src="images/hiraizumi-1.jpg" alt="Chusonji Temple, a UNESCO World Heritage site in Hiraizumi">
-            <img src="images/hiraizumi-2.jpg" alt="Motsuji Temple, a UNESCO World Heritage site in Hiraizumi">
-
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
-                <div style="text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">◫</div>
-                    <strong>Calm Environment</strong>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Fewer distractions and a slower pace create the ideal conditions for deep focus and genuine learning.</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">☆</div>
-                    <strong>Close Local Interaction</strong>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">In a small town, relationships form naturally. You will interact with local residents as part of daily life.</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">☙</div>
-                    <strong>Authentic Daily Life</strong>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Experience Japan as it is actually lived — not the curated version found in tourist areas or big cities.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="fee">
-            <h2>Program Fee</h2>
-            <h3>Investment & What Is Included</h3>
-            <div style="background: linear-gradient(135deg, #1B3A6E 0%, #4A90E2 100%); color: white; padding: 2rem; border-radius: 8px; margin: 1.5rem 0; text-align: center;">
-                <div style="font-size: 2rem; font-weight: bold;">USD 2,500</div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
-                <div>
-                    <h4 style="color: #1B3A6E; margin-bottom: 1rem;">Included</h4>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>Japanese language classes</li>
-                        <li>Learning activities and projects</li>
-                        <li>Furnished Accommodation include utilities and wifi</li>
-                        <li>Program coordination and support</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color: #666; margin-bottom: 1rem;">Not Included</h4>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>International flights, transportation to the site</li>
-                        <li>Daily meals</li>
-                        <li>Personal expenses</li>
-                        <li>Travel insurance</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <h3>Interested in Joining?</h3>
-                <p>If this program resonates with your goals, we would like to hear from you. Fill the inquiry form and we will guide you through the next steps.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform?usp=dialog" class="cta-button">Inquire Now</a>
-            </div>
-        </section>
-
-        <section>
-            <h2>Our Team</h2>
-            <h3>Who Runs This Program</h3>
-
-            <div class="team-member-card">
-                <img src="profiles/chihiro-kurose.jpg" alt="Chihiro Kurose" class="team-photo">
-                <div class="team-content">
-                    <strong>Chihiro Kurose</strong>
-                    <div class="title">Program Director & Organizer · CEO, Herofund Inc. · Board Member, Asia Institute of Innovation</div>
-                    <p>I have experience in international education and cross-border educational programs between Japan and Asia. I have worked on initiatives supporting international students and designing learning-based programs in Japan. I design and manage this program on a small scale to ensure quality, responsibility, and personal attention to each participant.</p>
-                </div>
-            </div>
-
-            <div class="team-member-card">
-                <img src="profiles/mori-hirofumi.jpg" alt="Hirofumi Mori" class="team-photo">
-                <div class="team-content">
-                    <strong>Hirofumi Mori</strong>
-                    <div class="title">CEO, Wald Inc. · Visiting Professor, Asia Institute of Innovation</div>
-                    <p>After completing his graduate studies at the University of Tokyo, Hirofumi worked at Hitachi Group for over a decade, including an assignment in Silicon Valley, California. He has extensive experience working with highly skilled international talent across the globe. He currently leads Wald Inc., providing DX solutions with Southeast Asian professionals, and serves as Vice Director of the Hiraizumi Economic Revitalization Institute. He also lectures at multiple universities on topics including global talent, business strategy, and regional development.</p>
-                </div>
-            </div>
-
-            <div class="team-member-card">
-                <img src="profiles/srey-chanreaksmey.jpg" alt="Srey Chanreaksmey" class="team-photo">
-                <div class="team-content">
-                    <strong>Srey Chanreaksmey</strong>
-                    <div class="title">Program Advisor · Asia Institute of Innovation Graduate</div>
-                    <p>Chanreaksmey graduated from Asia Institute of Innovation with a degree in Tourism Management and currently works at a Japanese company. As a graduate who successfully transitioned into the Japanese workforce, she brings firsthand understanding of the challenges and opportunities that international participants face. Her experience bridges the gap between academic learning and professional life in Japan.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>How to Apply</h2>
-            <h3>Application Process</h3>
-            <p>We keep the application process straightforward and personal. There is no complex online form — we start with a conversation.</p>
-
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0;">
-                <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <div style="font-size: 1.8rem; font-weight: bold; color: #1B3A6E; margin-bottom: 0.5rem;">1</div>
-                    <strong>Inquiry</strong>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Send us an email expressing your interest.</p>
-                </div>
-                <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <div style="font-size: 1.8rem; font-weight: bold; color: #1B3A6E; margin-bottom: 0.5rem;">2</div>
-                    <strong>Conversation</strong>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">We will arrange an initial conversation.</p>
-                </div>
-                <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <div style="font-size: 1.8rem; font-weight: bold; color: #1B3A6E; margin-bottom: 0.5rem;">3</div>
-                    <strong>Application</strong>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Complete a short application form.</p>
-                </div>
-                <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <div style="font-size: 1.8rem; font-weight: bold; color: #1B3A6E; margin-bottom: 0.5rem;">4</div>
-                    <strong>Enrollment</strong>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Receive detailed guidance on next steps.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Participant Voices</h2>
-            <h3>What Past Participants Say</h3>
-            <p>Since 2025, many students from Cambodia joined the program. Here is what they experienced.</p>
-
-            <img src="images/participant-meals.jpg" alt="Participants enjoying meals and bonding during the program">
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"Living in Hiraizumi was completely different from what I expected of Japan. There were no crowds, no noise — just real life. I learned more Japanese in one month here than I did in a year of textbook study."</strong></p>
-                <p style="color: #666;">— Sopheakvethya Syna, Cambodia, 2025 cohort</p>
-            </div>
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"The DX project gave me real experience I can show to employers. I worked with a local business to improve their online presence, and now I have something concrete in my portfolio."</strong></p>
-                <p style="color: #666;">— Vannputhika Suon, Cambodia, 2025 cohort</p>
-            </div>
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"I was nervous about living in a small town, but the local people were so welcoming. I became a regular at the local shops, and by the end I felt like part of the community."</strong></p>
-                <p style="color: #666;">— Ros Mengheang, Cambodia, 2025 cohort</p>
-            </div>
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"This program helped me understand what working in Japan is really like. The daily routines, the teamwork, the attention to detail — these are things you cannot learn from a classroom."</strong></p>
-                <p style="color: #666;">— Mao Roma, Cambodia, 2025 cohort</p>
-            </div>
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"The best part was the small group. Everyone knew each other, and the organizers gave us personal attention. It did not feel like a mass program — it felt like a real opportunity designed for us."</strong></p>
-                <p style="color: #666;">— Oeng Chihea, Cambodia, 2025 cohort</p>
-            </div>
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"Hiraizumi is a place full of history, and living here made me appreciate Japanese culture in a way I never could from a textbook. Every day felt like a new discovery."</strong></p>
-                <p style="color: #666;">— Sos Sokleng, Cambodia, 2025 cohort</p>
-            </div>
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"I came to learn about technology, but I also learned about myself. Working on real projects with local people gave me confidence that I can contribute anywhere."</strong></p>
-                <p style="color: #666;">— Dorn Kanika, Cambodia, 2026 cohort</p>
-            </div>
-
-            <div style="margin: 2rem 0;">
-                <p><strong>"Before this program, I only knew Japan from anime and news. Now I know what it is like to live here, work here, and be part of a community. That changed my career plans completely."</strong></p>
-                <p style="color: #666;">— Hour Seth Thavareak, Cambodia, 2026 cohort</p>
-            </div>
-
-            <p style="color: #666; margin-top: 2rem;"><em> — All participants completed the full program.</em></p>
-        </section>
-
-        <section id="faq">
-            <h2>FAQ</h2>
-            <h3>Frequently Asked Questions</h3>
-
-            <div class="faq-item">
-                <strong>Do I need to speak Japanese before joining?</strong>
-                <p>No prior Japanese is required, although basic knowledge is helpful. The program includes practical Japanese study, and you will develop your skills through daily life and structured learning activities.</p>
-            </div>
-
-            <div class="faq-item">
-                <strong>What type of visa do I need?</strong>
-                <p>Visa requirements depend on your nationality and circumstances. Once you are accepted, we will provide guidance on the appropriate visa type and application process for a 1-month stay in Japan.</p>
-            </div>
-
-            <div class="faq-item">
-                <strong>Can I receive academic credit for this program?</strong>
-                <p>This program is not affiliated with a specific university, but we can provide documentation of your participation and learning outcomes. Many universities accept such documentation for credit transfer — please consult your academic advisor.</p>
-            </div>
-
-            <div class="faq-item">
-                <strong>How large is each cohort?</strong>
-                <p>The program is intentionally small-scale. Exact cohort sizes may vary, but we keep groups small to ensure quality interaction, personal support, and meaningful community engagement.</p>
-            </div>
-
-            <div class="faq-item">
-                <strong>What kind of accommodation is provided?</strong>
-                <p>Accommodation is arranged locally in Hiraizumi. The type may vary depending on availability and the program track, but all options are comfortable and suitable for a 1-month stay. Details will be shared upon acceptance.</p>
-            </div>
-
-            <div class="faq-item">
-                <strong>Is this program suitable for graduate students or working professionals?</strong>
-                <p>Yes. The program is designed to accommodate participants with different backgrounds and levels of experience. The content can be adapted to suit individual learning goals, whether academic, professional, or personal.</p>
-            </div>
-
-            <div class="faq-item">
-                <strong>What happens after the program?</strong>
-                <p>Participants leave with practical skills, cultural understanding, and documented experience that can support future career or academic plans in Japan. We also remain available for guidance and references as you take your next steps.</p>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <h3>Interested in Joining?</h3>
-                <p>If this program resonates with your goals, we would like to hear from you.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-CW1jkqPPIoOq8JAcbMoSCnXc82P8BebpZ3QaE8U7q-cfDg/viewform?usp=dialog" class="cta-button">Apply/Inquiry Now</a>
-            </div>
-        </section>
-    </div>
-
-    <footer id="contact">
-        <p>© 2026 Japan Exchange & DX Learning Program. All rights reserved.</p>
-        <p><strong>Operated by:</strong> HeroFund Inc. </p>
-        <p>Contact: <a href="mailto:info@herofund.app">info@herofund.app</a></p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">© 2026 HeroFund Inc. All rights reserved.</p>
-    </footer>
+<script>{
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const quotes=[["Living in Hiraizumi was completely different from what I expected of Japan.","Sopheakvethya Syna","Cambodia, 2025"],["The DX project gave me real experience I can show to employers.","Vannputhika Suon","Cambodia, 2025"],["I was nervous about living in a small town, but the local people were so welcoming.","Ros Mengheang","Cambodia, 2025"],["This program helped me understand what working in Japan is really like.","Mao Roma","Cambodia, 2025"],["The best part was the small group. Everyone knew each other, and the organizers gave us personal attention.","Oeng Chihea","Cambodia, 2025"],["Hiraizumi is a place full of history, and living here made me appreciate Japanese culture.","Sos Sokleng","Cambodia, 2025"],["I came to learn about technology, but I also learned about myself.","Dorn Kanika","Cambodia, 2026"],["Before this program, I only knew Japan from anime and news.","Hour Seth Thavareak","Cambodia, 2026"]];
+const pics={'Vannputhika Suon':'participant-vannputhika','Dorn Kanika':'participant-kanika','Hour Seth Thavareak':'participant-thavareak'};
+const q=document.getElementById('q');q.innerHTML=quotes.map(([t,n,f])=>`<figure class="card quote" style="margin:0">${pics[n]?`<div class="photo" style="aspect-ratio:4/3;margin-bottom:14px"><img src="images/web/${pics[n]}.jpg" alt="${esc(n)}" loading="lazy" onerror="this.remove()"></div>`:''}<p>&ldquo;${esc(t)}&rdquo;</p><figcaption><b>${esc(n)}</b><br><span class="soft">${esc(f)}</span></figcaption></figure>`).join('');
+document.querySelectorAll('.qnav button').forEach(b=>b.addEventListener('click',()=>q.scrollBy({left:(+b.dataset.d)*q.clientWidth*.8,behavior:'smooth'})));
+q.tabIndex=0;q.addEventListener('keydown',e=>{if(e.key==='ArrowRight')q.scrollBy({left:q.clientWidth*.8,behavior:'smooth'});if(e.key==='ArrowLeft')q.scrollBy({left:-q.clientWidth*.8,behavior:'smooth'})});
+const values=[["整","Tidiness and cleanliness","Every morning starts with 15 minutes of cleaning the house together, as Japanese schools and homes do."],["物","Caring for things","Fold your futon, sort the garbage, and keep shared spaces in order."],["作","Craftsmanship","Visit local workshops and make lacquerware and metal engravings with your own hands."],["謝","Gratitude","Learn how Japanese people say thank you: words, small gifts, letters and a farewell speech."]];
+document.getElementById('values').innerHTML=values.map(([k,h,t])=>`<div class="value"><i aria-hidden="true">${k}</i><div><h3>${esc(h)}</h3><p class="soft">${esc(t)}</p></div></div>`).join('');
+const day=[["8:30","House cleaning together"],["9:00","Program: community project (1 month) or cultural activities and visits (2 weeks)"],["12:00","Lunch"],["13:00","Program continues"],["14:30","Elementary school volunteering (Mon and Thu)"],["16:30","Japanese class"],["Evening","5-minute reflection. Friday: local soccer club (optional)"]];
+document.getElementById('days').innerHTML=day.map(([t,d])=>`<tr><th class="t" style="width:6em">${esc(t)}</th><td>${esc(d)}</td></tr>`).join('');
+const t1=[["10:00","Oyama Taiko: a taiko drum workshop"],["11:30","Kesennuma: lunch, fish market and Shark Museum"],["15:15","Ochiya: lacquerware workshop, try lacquer painting"],["18:00","Dinner gathering"]],t2=[["9:30","Iwayado chest workshop: traditional wooden chests"],["10:40","Chokin Kogei Kikuhiro: metal engraving workshop"],["12:30","Lunch"],["14:00","Digi I's (Teraoka Seiko group): IT company visit"]];
+const li=a=>a.map(([t,d])=>`<li><b>${esc(t)}</b><span>${esc(d)}</span></li>`).join('');document.getElementById('t1').innerHTML=li(t1);document.getElementById('t2').innerHTML=li(t2);
+const team=[["profiles/chihiro-kurose.jpg","Chihiro Kurose","Program Director. CEO, HeroFund Inc. Board member, Asia Institute of Innovation."],["profiles/mori-hirofumi.jpg","Hirofumi Mori","CEO, Wald Inc. Visiting Professor, Asia Institute of Innovation."],["profiles/srey-chanreaksmey.jpg","Srey Chanreaksmey","Program Advisor. Graduate, Asia Institute of Innovation."]];
+document.getElementById('team').innerHTML=team.map(([s,n,r])=>`<div class="team"><div class="av"><img src="${esc(s)}" alt="${esc(n)}" onerror="this.remove()"></div><div><b>${esc(n)}</b><br><span class="soft">${esc(r)}</span></div></div>`).join('');
+const faqs=[["Do I need to speak Japanese?","No. Beginners are welcome. Classes are by level and staff support you in English."],["What visa do I need?","It depends on your nationality. Some nationalities need a short-term visa, so please check early. We provide documents for your application on request."],["Can I get academic credit?","We provide a syllabus and a grade report for the 1-month program. Please check credit transfer with your university."],["Is the project paid work?","No. It is an unpaid training activity. Participants do not receive any payment."],["How do I get to Hiraizumi?","Take the Tohoku Shinkansen from Tokyo to Ichinoseki Station. We pick you up there."],["What should I bring?","Passport, visa if required, Visit Japan Web QR code, cash and a Visa or Mastercard, SIM card, laptop, indoor shoes, medicine, warm clothes (Feb to Apr), towels and a toothbrush."],["Can graduate students or young professionals join?","Yes. Participants must be 18 or older."]];
+document.getElementById('faqs').innerHTML=faqs.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+}</script>
 </body>
 </html>
